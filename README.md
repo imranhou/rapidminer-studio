@@ -63,8 +63,13 @@ Please have in mind that the jar file still require all dependencies listed in t
 
 To start the graphical user interface of RapidMiner Studio Core create a new `GuiLauncher.java` file in __src/main/java__ and run it with your IDE. If you want to use the generated jar, add the jar and all dependencies to the Java class path `java -cp "all;required;jars" GuiLauncher`. You can list the runtime dependencies by executing `gradlew dependencies --configuration runtime`.
 
+You can also simply run the gui by `gradlew run`
+
 ```java
 import com.rapidminer.gui.RapidMinerGUI;
+import com.rapidminer.gui.ToolbarGUIStartupListener;
+import com.rapidminer.tools.PlatformUtilities;
+import java.nio.file.Paths;
 
 class GuiLauncher {
 	public static void main(String args[]) throws Exception {
@@ -80,9 +85,12 @@ class GuiLauncher {
 **Prerequisite**: Start the RapidMiner Studio GUI at least once and accept the EULA.
 
 To run RapidMiner Studio in command line mode create a new `CliLauncher.java` file in __src/main/java__ with the following content:
+You can also run the cli by setting the mainClassName in build.gradle file to 'CliLauncher' and then run `gradlew run`
 
 ```java
 import com.rapidminer.RapidMiner;
+import com.rapidminer.tools.PlatformUtilities;
+import java.nio.file.Paths;
 
 class CliLauncher {
 	public static void main(String args[]) throws Exception {
